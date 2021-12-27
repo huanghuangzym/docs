@@ -27,7 +27,7 @@ envoy运行有两种模式，分别为边车模式和代理模式
 边车模式
 ----
 
-![](/root/Documents/tect/hl/image2021-12-6_14-39-57.png)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-6_14-39-57.png)
 
 其中边车模式为通过iptable进行流量劫持
 
@@ -44,7 +44,7 @@ Istio支持两种拦截模式：
 
 关于trpoxy
 
-![](/root/Documents/tect/hl/image2021-12-10_14-56-37.png?version=1&modificationDate=1639119398000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-10_14-56-37.png?version=1&modificationDate=1639119398000&api=v2)
 
 [https://github.com/istio/istio/issues/5679](https://github.com/istio/istio/issues/5679)
 
@@ -77,9 +77,9 @@ Istio支持两种拦截模式：
 
 这里介绍的是iptables redirect模式
 
-![](/root/Documents/tect/hl/image2021-12-6_11-31-29.png?version=1&modificationDate=1638763090000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-6_11-31-29.png?version=1&modificationDate=1638763090000&api=v2)
 
-![](/root/Documents/tect/hl/image2021-12-6_11-32-16.png?version=1&modificationDate=1638763090000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-6_11-32-16.png?version=1&modificationDate=1638763090000&api=v2)
 
   
 
@@ -160,13 +160,13 @@ iptable规则中还出现了个127.0.0.6的地址，这里做出简单解释，�
 
 [https://github.com/istio/istio/issues/29603](https://github.com/istio/istio/issues/29603)
 
-![](/root/Documents/tect/hl/image2021-12-16_18-25-26.png?version=1&modificationDate=1639650327000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-16_18-25-26.png?version=1&modificationDate=1639650327000&api=v2)
 
   
 
-![](/root/Documents/tect/hl/image2021-12-9_14-41-52.png?version=1&modificationDate=1639032112000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-9_14-41-52.png?version=1&modificationDate=1639032112000&api=v2)
 
-![](/root/Documents/tect/hl/image2021-12-9_14-42-22.png?version=1&modificationDate=1639032143000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-9_14-42-22.png?version=1&modificationDate=1639032143000&api=v2)
 
 关于inbound的设计文档
 
@@ -182,7 +182,7 @@ iptable规则中还出现了个127.0.0.6的地址，这里做出简单解释，�
 
   
 
-![](/root/Documents/tect/hl/image2021-12-7_10-21-3.png?version=1&modificationDate=1638843664000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-7_10-21-3.png?version=1&modificationDate=1638843664000&api=v2)
 
   
 
@@ -195,7 +195,7 @@ iptable规则中还出现了个127.0.0.6的地址，这里做出简单解释，�
 网关模式
 ----
 
-![](/root/Documents/tect/hl/image2021-12-6_14-40-37.png?version=1&modificationDate=1638772838000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-6_14-40-37.png?version=1&modificationDate=1638772838000&api=v2)
 
 网关模式并无iptables作流量劫持，listener也并非虚拟listener，敬请期待下一篇分析
 
@@ -211,7 +211,7 @@ outbound方向
 
 filter解析
 
-![](/root/Documents/tect/hl/image2021-12-6_12-47-7.png?version=1&modificationDate=1638766027000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-6_12-47-7.png?version=1&modificationDate=1638766027000&api=v2)
 
   
 
@@ -316,7 +316,7 @@ filter解析
 3.  [https://lwn.net/Articles/542629/](https://lwn.net/Articles/542629/)(实现与现有缺陷)
 4.  [https://tech.flipkart.com/linux-tcp-so-reuseport-usage-and-implementation-6bfbf642885a](https://tech.flipkart.com/linux-tcp-so-reuseport-usage-and-implementation-6bfbf642885a)
 
-![](/root/Documents/tect/hl/image2021-12-10_14-8-11.png?version=1&modificationDate=1639116492000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-10_14-8-11.png?version=1&modificationDate=1639116492000&api=v2)
 
 多个 server socket 监听相同的端口。每个 server socket 对应一个监听线程。内核 TCP 栈接收到客户端建立连接请求(SYN)时，按 TCP 4 元组(srcIP,srcPort,destIP,destPort) hash 算法，选择一个监听线程，唤醒之。新连接绑定到被唤醒的线程。**所以相对于非`SO_REUSEPORT`， 连接更为平均地分布到线程中（hash 算法不是绝对平均）**
 
@@ -326,13 +326,13 @@ envoy当中是支持在listener去设置开启这个特性，但是热重启场�
 
 [https://www.envoyproxy.io/docs/envoy/v1.18.3/api-v3/config/listener/v3/listener.proto](https://www.envoyproxy.io/docs/envoy/v1.18.3/api-v3/config/listener/v3/listener.proto)
 
-![](/root/Documents/tect/hl/image2021-12-10_14-10-27.png?version=1&modificationDate=1639116628000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-10_14-10-27.png?version=1&modificationDate=1639116628000&api=v2)
 
 验证观察
 
 默认未开启，通过envoyfilter进行开启后，可见15001的端口被开启
 
-![](/root/Documents/tect/hl/image2021-12-10_14-14-2.png?version=1&modificationDate=1639116843000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-10_14-14-2.png?version=1&modificationDate=1639116843000&api=v2)
 
   
 ```
@@ -362,27 +362,27 @@ spec:
 
   
 
-![](/root/Documents/tect/hl/image2021-12-10_14-19-14.png?version=1&modificationDate=1639117155000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-10_14-19-14.png?version=1&modificationDate=1639117155000&api=v2)
 
   
 
 而对于没有应用reuseport
 
-![](/root/Documents/tect/hl/image2021-12-10_14-20-56.png?version=1&modificationDate=1639117256000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-10_14-20-56.png?version=1&modificationDate=1639117256000&api=v2)
 
   
 
 大致的平均
 
-![](/root/Documents/tect/hl/image2021-12-10_15-54-23.png?version=1&modificationDate=1639122864000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-10_15-54-23.png?version=1&modificationDate=1639122864000&api=v2)
 
   
 
 _关于绝对的链接平衡， 可以试试 Listener 的配置`connection_balance_config： exact_balance`，不过由于有锁，对高频新连接应该有一定的性能损耗。目前只适用于 TCP 监听器_
 
-![](/root/Documents/tect/hl/image2021-12-10_15-59-32.png?version=1&modificationDate=1639123172000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-10_15-59-32.png?version=1&modificationDate=1639123172000&api=v2)
 
-![](/root/Documents/tect/hl/image2021-12-10_15-59-48.png?version=1&modificationDate=1639123189000&api=v2)
+![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-10_15-59-48.png?version=1&modificationDate=1639123189000&api=v2)
 
   
 
@@ -842,7 +842,7 @@ ConnectionHandlerImpl::getBalancedHandlerByAddress(const Network::Address::Insta
    
 
 1.  (envoy社区有讨论会将协议解析器从http\_parser换成llhttp)
-2.  ![](/root/Documents/tect/hl/image2021-12-9_18-41-1.png?version=1&modificationDate=1639046462000&api=v2)
+2.  ![](https://github.com/huanghuangzym/docs/blob/main/envoy/imgs/image2021-12-9_18-41-1.png?version=1&modificationDate=1639046462000&api=v2)
     
 
 [https://github.com/envoyproxy/envoy/issues/5155](https://github.com/envoyproxy/envoy/issues/5155)
